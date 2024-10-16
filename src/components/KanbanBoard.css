@@ -1,0 +1,104 @@
+.kanban-board {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 25px;
+  background-color: #f5f5f5; /* Light gray background for the whole board */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slight shadow for a floating effect */
+}
+
+.options {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 20px;
+  justify-content: start;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  display: grid;
+  align-items: start;
+}
+
+.dropdown label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
+
+.board-columns {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr); /* Increased min width for better readability */
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 15px; /* Extra padding for better scrolling */
+}
+
+.board-column {
+  background-color: #ffffff; /* White background for columns */
+  padding: 16px;
+  border-radius: 10px; /* Rounded corners */
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Soft shadow for each column */
+  border: 1px solid #ddd; /* Light border for structure */
+}
+
+.board-column h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: #555; /* Softer text color */
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+}
+
+.task-card {
+  background-color: #ffffff; /* White card background */
+  padding: 16px;
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft card shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0; /* Subtle border to distinguish cards */
+}
+
+.task-card:hover {
+  transform: translateY(-4px); /* Lift the card on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.kanban-board::-webkit-scrollbar {
+  height: 8px; /* Thicker scrollbar */
+}
+
+.kanban-board::-webkit-scrollbar-thumb {
+  background-color: #888; /* Darker scrollbar thumb */
+  border-radius: 4px;
+}
+
+.kanban-board::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Lighter track for contrast */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .board-columns {
+    grid-auto-columns: minmax(200px, 1fr); /* Narrower columns on small screens */
+  }
+
+  .task-card {
+    padding: 12px; /* Smaller padding for mobile */
+  }
+
+  .board-column h2 {
+    font-size: 1.4rem; /* Smaller font size on mobile */
+  }
+}
+
